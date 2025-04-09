@@ -22,10 +22,10 @@ interface UserInfo {
 const userSchema = z.object({
     full_name: z.string().min(1, 'full_name is required'),
     email: z.string().email('enter a valid email'),
-    phone_number: z.string().min(10, 'number must be at least 10 digits'),
+    phone_number: z.string().min(10, 'number must be at least 10 digits').regex(/^\d+$/, 'phone number must contain only numbers'),
     street_address: z.string().min(1, 'street address is required'),
     city: z.string().min(1, 'city is required'),
-    zip_code: z.string().min(5, 'zip code must be 5 digits or more'),
+    zip_code: z.string().min(5, 'zip code must be 5 digits or more').regex(/^\d+$/, 'Zip code must contain only numbers'),
     user_name: z.string().min(4, 'username must be 4 characters or more'),
     password: z.string().min(6, 'password must be 6 character or more'),
     confirm_password: z.string(),
@@ -287,7 +287,7 @@ const ValidateForm = () => {
                                     <Button variant="outline" className="w-full">
                                         Submit
                                     </Button>
-                                    <Button  onClick={prev} variant="outline" className="w-full mt-3">
+                                    <Button onClick={prev} variant="outline" className="w-full mt-3">
                                         Prev
                                     </Button>
                                 </div>
