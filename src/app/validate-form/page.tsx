@@ -11,10 +11,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 const userSchema = z.object({
     full_name: z.string().min(1, 'full_name is required'),
     email: z.string().email('enter a valid email'),
-    phone_number: z.number().min(10, 'number must be at least 10 digits'),
+    phone_number: z.string().min(10, 'number must be at least 10 digits'),
     street_address: z.string().min(1, 'street address is required'),
     city: z.string().min(1, 'city is required'),
-    zip_code: z.number().min(5, 'zip code must be 5 digits or more'),
+    zip_code: z.string().min(5, 'zip code must be 5 digits or more'),
     user_name: z.string().min(4, 'username must be 4 characters or more'),
     password: z.string().min(6, 'password must be 6 character or more'),
     confirm_password: z.string(),
@@ -124,7 +124,7 @@ const ValidateForm = () => {
                                         <div className="space-y-2">
                                             <Label className="font-semibold" htmlFor="tel">Your Phone Number <span className="text-red-700 font-bold">*</span></Label>
                                             <Input
-                                                {...register('phone_number', { valueAsNumber: true })}
+                                                {...register('phone_number')}
                                                 type="tel" placeholder="Enter your phone number" />
                                             <span className="text-red-700">{errors?.phone_number && errors.phone_number.message}</span>
                                         </div>
@@ -142,6 +142,9 @@ const ValidateForm = () => {
                                             <Input
                                                 {...register('street_address')}
                                                 type="string" placeholder="Enter your street address" />
+                                            <span className="text-red-700">{errors?.street_address &&
+                                                errors.street_address.message}
+                                            </span>
                                         </div>
                                         {/* City */}
                                         <div className="space-y-2">
@@ -149,13 +152,19 @@ const ValidateForm = () => {
                                             <Input
                                                 {...register('city')}
                                                 type="string" placeholder="Enter your city" />
+                                            <span className="text-red-700">{errors?.city &&
+                                                errors.city.message}
+                                            </span>
                                         </div>
                                         {/* Zip */}
                                         <div className="space-y-2">
                                             <Label className="font-semibold" htmlFor="zip">Zip Code<span className="text-red-700 font-bold">*</span></Label>
                                             <Input
-                                                {...register('zip_code', { valueAsNumber: true })}
+                                                {...register('zip_code')}
                                                 type="number" placeholder="Enter your Zip Code" />
+                                            <span className="text-red-700">{errors?.zip_code &&
+                                                errors.zip_code.message}
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -171,6 +180,9 @@ const ValidateForm = () => {
                                             <Input
                                                 {...register('user_name')}
                                                 type="string" placeholder="Enter your user name" />
+                                            <span className="text-red-700">{errors?.user_name &&
+                                                errors.user_name.message}
+                                            </span>
                                         </div>
                                         {/* Email */}
                                         <div className="space-y-2">
@@ -178,6 +190,9 @@ const ValidateForm = () => {
                                             <Input
                                                 {...register('password')}
                                                 type="password" placeholder="Enter your email" />
+                                            <span className="text-red-700">{errors?.password &&
+                                                errors.password.message}
+                                            </span>
                                         </div>
                                         {/* Phone Number */}
                                         <div className="space-y-2">
@@ -185,19 +200,21 @@ const ValidateForm = () => {
                                             <Input
                                                 {...register('confirm_password')}
                                                 type="password" placeholder="Enter your phone number" />
+                                            <span className="text-red-700">{errors?.confirm_password &&
+                                                errors.confirm_password.message}
+                                            </span>
                                         </div>
                                         <button>submit</button>
                                     </div>
-
                                 </div>
                             }
                         </form>
                         {/* step button */}
-                        <div className={`mt-5 flex justify-end ${currentStep !== 0 && "justify-between"}`}>
+                        <div className={`mt-5 flex justify-between ${currentStep === 0 && "justify-end"}`}>
                             {
                                 currentStep !== 0 && < Button
                                     onClick={prev}
-                                    disabled={currentStep === 1}
+                                    disabled={currentStep === 0}
                                     variant='outline' className="px-6 text-lg flex items-center justify-center"><FaChevronLeft />Previous</Button>
                             }
                             <Button
