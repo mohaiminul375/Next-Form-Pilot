@@ -15,6 +15,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 import { Toaster } from 'react-hot-toast';
+import Navbar from "@/components/Shared/Navbar";
+import Footer from "@/components/Shared/Footer";
 
 const queryClient = new QueryClient()
 export default function RootLayout({
@@ -28,8 +30,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <QueryClientProvider client={queryClient}>
+          <Navbar/>
+         <main className="min-h-[calc(100vh-160px)]">
           {children}
+         </main>
           <Toaster />
+          <Footer/>
         </QueryClientProvider>
       </body>
     </html>

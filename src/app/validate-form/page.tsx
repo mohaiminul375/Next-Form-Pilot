@@ -9,6 +9,7 @@ import { z } from "zod";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useCreateFormData } from "./api/rote";
 import toast from "react-hot-toast";
+import Link from "next/link";
 
 interface UserInfo {
     full_name: string;
@@ -119,9 +120,15 @@ const ValidateForm = () => {
     return (
         <section>
             {/* Starting content */}
-            <div className="flex justify-center items-center min-h-screen">
+            <div className="flex justify-center items-center min-h-[calc(100vh-160px)]">
                 <div className=" md:min-w-3xl mx-auto bg-foreground shadow-2xl p-6  rounded-md text-white py-10">
-
+                    <div>
+                        <Link className="" href='/' >
+                            <Button variant='outline'>
+                                <FaChevronLeft /> Back to Home Page
+                            </Button>
+                        </Link>
+                    </div>
                     {/* Form */}
                     <div className="mt-5 ">
                         <form onSubmit={handleSubmit(onSubmit)}>
@@ -310,7 +317,7 @@ const ValidateForm = () => {
 
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 
