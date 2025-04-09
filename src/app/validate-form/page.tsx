@@ -7,7 +7,9 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { z } from "zod";
 import { zodResolver } from '@hookform/resolvers/zod';
-// Zod validation
+import { useCreateFormData } from "./api/rote";
+import toast from "react-hot-toast";
+
 interface UserInfo {
     full_name: string;
     email: string;
@@ -19,6 +21,7 @@ interface UserInfo {
     password: string;
     confirm_password: string;
 }
+// Zod validation
 const userSchema = z.object({
     full_name: z.string().min(1, 'full_name is required'),
     email: z.string().email('enter a valid email'),
@@ -57,10 +60,10 @@ const steps = [
         name: 'Summary',
 
     },
-
 ]
 // 
 const ValidateForm = () => {
+    const createData = useCreateFormData();
     // Handle steps or page
     const [currentStep, setCurrentStep] = useState<number>(0);
     const [previousStep, setPreviousStep] = useState(0);
@@ -70,7 +73,6 @@ const ValidateForm = () => {
     const {
         register,
         handleSubmit,
-        watch,
         trigger,
         formState: { errors, },
     } = useForm<Input>({
@@ -78,7 +80,7 @@ const ValidateForm = () => {
     })
     const onSubmit: SubmitHandler<Input> = (data) => {
         console.table(data)
-
+        toast.success('Data Validate successfully check the console')
         setUserData(data)
         setCurrentStep(3)
     }
@@ -107,7 +109,13 @@ const ValidateForm = () => {
             setCurrentStep(step => step + 1)
         }
     }
+    // Handle submit data to server
+    const handleSubmitFormData = async () => {
+        const newData = userData;
+        if (!newData) return toast.error('failed to validate. try again')
+        await createData.mutateAsync(newData as UserInfo);
 
+    }
     return (
         <section>
             {/* Starting content */}
@@ -284,7 +292,9 @@ const ValidateForm = () => {
 
                                 {/* Submit Button */}
                                 <div className="text-center pt-4">
-                                    <Button variant="outline" className="w-full">
+                                    <Button
+                                        onClick={handleSubmitFormData}
+                                        variant="outline" className="w-full">
                                         Submit
                                     </Button>
                                     <Button onClick={prev} variant="outline" className="w-full mt-3">
