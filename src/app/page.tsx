@@ -25,7 +25,7 @@ export default function Home() {
           <div className="mt-5 flex gap-5">
             <Link
               className="rounded-2xl border-2 border-white px-8 py-2  ease-in-out hover:rounded-full hover:bg-white text-lg hover:text-[#2DB89D] hover:font-semibold hover:shadow-md transition-all duration-700"
-              href='/validate-form'
+              href='/all-validation'
             >
               See all Validation
             </Link>
