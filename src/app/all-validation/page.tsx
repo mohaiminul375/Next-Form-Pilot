@@ -1,6 +1,4 @@
 'use client'
-import { FaClock, FaEnvelopeOpen, FaUserCheck } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
 import { useGetUsers } from "./api/route";
 import UsersCard from "@/components/ValidateData/UsersCard";
 
@@ -9,6 +7,11 @@ const AllValidationData = () => {
     if (isLoading) {
         return
     }
+    if (isError) return (
+        <p className="text-center text-red-700">
+            Error: {error && (typeof error === "string" ? error : error.message)}
+        </p>
+    );
     // console.log(data);
     return (
         <section className="mt-10 md:max-w-7xl mx-auto">
