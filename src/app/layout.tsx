@@ -1,13 +1,13 @@
 'use client'
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const manrope = Manrope({
+  weight: '700',
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
@@ -27,15 +27,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${manrope.className} ${geistMono.variable} antialiased`}
       >
         <QueryClientProvider client={queryClient}>
-          <Navbar/>
-         <main className="min-h-[calc(100vh-160px)] my-14">
-          {children}
-         </main>
+          <Navbar />
+          <main className="min-h-[calc(100vh-160px)] my-14">
+            {children}
+          </main>
           <Toaster />
-          <Footer/>
+          <Footer />
         </QueryClientProvider>
       </body>
     </html>

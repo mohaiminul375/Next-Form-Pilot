@@ -63,7 +63,7 @@
 - **Frontend**: Next.js, Typescript, HTML, Tailwind CSS, Shadcn.
 - **Hosting**: Vercel.
 
-# npm and Packages
+# yarn and Packages
 
 - Next.js(15.2.4)
 - React(18)

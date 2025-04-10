@@ -64,7 +64,7 @@ const steps = [
 
     },
 ]
-// 
+// Main Component
 const ValidateForm = () => {
     const createData = useCreateFormData();
     // Handle steps or page
@@ -76,7 +76,7 @@ const ValidateForm = () => {
     const {
         register,
         handleSubmit,
-        trigger,
+        trigger, //validate only specific field not all field
         formState: { errors, },
     } = useForm<Input>({
         resolver: zodResolver(userSchema),
@@ -99,15 +99,17 @@ const ValidateForm = () => {
     // Next Step
     type FieldName = keyof Input
     const next = async () => {
+        // Validate specific field
         const fields = steps[currentStep].fields
         const output = await trigger(fields as FieldName[], { shouldFocus: true })
         console.log(fields, output)
         if (!output) return
-
+        // console all data
         if (currentStep < steps.length - 1) {
             if (currentStep === steps.length - 2) {
                 await handleSubmit(onSubmit)()
             }
+            // handle step
             setPreviousStep(currentStep)
             setCurrentStep(step => step + 1)
         }
@@ -119,10 +121,10 @@ const ValidateForm = () => {
         await createData.mutateAsync(newData as UserInfo);
 
     }
- 
+
     return (
         <section>
-             <title>Next Pilot Form | Form Validation</title>
+            <title>Next Pilot Form | Form Validation</title>
             {/* Starting content */}
             <div className="flex justify-center items-center min-h-[calc(100vh-160px)]">
                 <div className=" md:min-w-3xl mx-auto bg-foreground shadow-2xl   rounded-md text-white  dark:border border-indigo-200 border-double">
@@ -255,7 +257,7 @@ const ValidateForm = () => {
                                                     errors.confirm_password.message}
                                                 </span>
                                             </div>
-                                           
+
                                             <Button
                                                 // onClick={() => setCurrentStep(3)}
                                                 size='lg' variant='outline'>Preview</Button>

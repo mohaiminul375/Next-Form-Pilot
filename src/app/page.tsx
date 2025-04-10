@@ -20,7 +20,7 @@ export default function Home() {
     <section >
       <title>Next Pilot Form | Home</title>
       {/* Starting content */}
-      <div className="flex justify-center items-center min-h-[calc(100vh-160px)] ">
+      <div className="flex justify-center items-center min-h-[calc(100vh-160px)]">
         <div className=" md:min-w-3xl mx-auto bg-foreground shadow-2xl p-6 text-center rounded-md text-white min-h-72 flex flex-col items-center justify-center space-y-5 dark:border border-indigo-200 border-double">
           <h2 className={`text-5xl font-bold ${dancing_Script.className}`}>Welcome to Next Form Pilot</h2>
           <p className="text-lg font-semibold">Multi-Step Form with Validation with Zod and React Hook Form</p>
