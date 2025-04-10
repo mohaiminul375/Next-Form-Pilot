@@ -1,6 +1,8 @@
-
+'use client'
 import Link from "next/link";
 import { dancing_Script } from "@/components/Shared/Navbar";
+import { useGetDataSummary } from "./all-validation/api/route";
+import Loading from "./loading";
 // export const dancing_Script = Dancing_Script({
 //     weight: '700',
 //     subsets: ['latin'],
@@ -8,6 +10,12 @@ import { dancing_Script } from "@/components/Shared/Navbar";
 
 
 export default function Home() {
+  const { data, isLoading, isError, error } = useGetDataSummary();
+  if (isError) return (
+    <p className="text-center text-red-700">
+      Error: {error && (typeof error === "string" ? error : error.message)}
+    </p>
+  );
   return (
     <section >
       {/* Starting content */}
@@ -16,11 +24,13 @@ export default function Home() {
           <h2 className={`text-5xl font-bold ${dancing_Script.className}`}>Welcome to Next Form Pilot</h2>
           <p className="text-lg font-semibold">Multi-Step Form with Validation with Zod and React Hook Form</p>
           {/* data summary */}
-          <div className="space-y-2 font-bold text-xl">
-            <h4>Total Validation:</h4>
-            <h4>Last Validation at:</h4>
-            <h4></h4>
-          </div>
+          {
+            isLoading ? <Loading /> : <div className="space-y-2 font-semibold text-lg">
+              <h4>Total Validation: {data?.totalValidation}</h4>
+              <h4>Last Validation at: {new Date(data?.lastSubmittedAt).toLocaleString()}</h4>
+              <h4></h4>
+            </div>
+          }
           <div className="mt-5 flex gap-5">
             <Link
               className="rounded-2xl border-2 border-white px-8 py-2  ease-in-out hover:rounded-full hover:bg-white text-lg hover:text-[#2DB89D] hover:font-semibold hover:shadow-md transition-all duration-700"

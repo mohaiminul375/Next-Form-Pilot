@@ -1,7 +1,6 @@
 'use client'
 import { Dancing_Script } from "next/font/google";
 import Link from "next/link";
-import { Button } from "../ui/button";
 import { useState } from "react";
 export const dancing_Script = Dancing_Script({
     weight: '700',

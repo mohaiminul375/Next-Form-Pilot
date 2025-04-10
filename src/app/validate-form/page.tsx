@@ -38,9 +38,9 @@ const userSchema = z.object({
 
 }).refine((data) => data.password === data.confirm_password, {
     message: "Passwords do not match",
-    path: ["confirmPassword"],
+    path: ["confirm_password"],
 })
-
+// Steps 
 type Input = z.infer<typeof userSchema>
 const steps = [
     {
@@ -59,7 +59,7 @@ const steps = [
         fields: ['user_name', 'password', 'confirm_password']
     },
     {
-        id: 'Step 3',
+        id: 'Step 4',
         name: 'Summary',
 
     },
@@ -119,19 +119,7 @@ const ValidateForm = () => {
         await createData.mutateAsync(newData as UserInfo);
 
     }
-    // Progress Bar
-    // if (currentStep === 0) {
-    //     setProgress(25)
-    // }
-    // if (currentStep === 1) {
-    //     setProgress(50)
-    // }
-    // if (currentStep === 2) {
-    //     setProgress(75)
-    // }
-    // if (currentStep === 3) {
-    //     setProgress(100)
-    // }
+ 
     return (
         <section>
             {/* Starting content */}
@@ -235,7 +223,7 @@ const ValidateForm = () => {
                                         animate={{ x: 0, opacity: 1 }}
                                         transition={{ duration: 0.3, ease: 'easeInOut' }}>
                                         <h2 className="text-3xl font-bold text-center mb-5">Step 3: Account Setup</h2>
-                                        {/* Name */}
+                                        {/* User Name */}
                                         <div className="space-y-3">
                                             <div className="space-y-2">
                                                 <Label className="font-semibold" htmlFor="user_name"> User Name <span className="text-red-700 font-bold">*</span></Label>
@@ -246,7 +234,7 @@ const ValidateForm = () => {
                                                     errors.user_name.message}
                                                 </span>
                                             </div>
-                                            {/* Email */}
+                                            {/* Password */}
                                             <div className="space-y-2">
                                                 <Label className="font-semibold" htmlFor="password">Password <span className="text-red-700 font-bold">*</span></Label>
                                                 <Input
@@ -256,7 +244,7 @@ const ValidateForm = () => {
                                                     errors.password.message}
                                                 </span>
                                             </div>
-                                            {/* Phone Number */}
+                                            {/* confirm password */}
                                             <div className="space-y-2">
                                                 <Label className="font-semibold" htmlFor="confirm_password">confirm Password<span className="text-red-700 font-bold">*</span></Label>
                                                 <Input
@@ -266,7 +254,7 @@ const ValidateForm = () => {
                                                     errors.confirm_password.message}
                                                 </span>
                                             </div>
-                                            {/* Summary */}
+                                           
                                             <Button
                                                 // onClick={() => setCurrentStep(3)}
                                                 size='lg' variant='outline'>Preview</Button>
@@ -301,7 +289,7 @@ const ValidateForm = () => {
                                     transition={{ duration: 0.3, ease: 'easeInOut' }} className="max-w-3xl mx-auto p-6 space-y-6">
                                     {/* Heading */}
                                     <div className="">
-                                        <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">Summary</h2>
+                                        <h2 className="text-3xl font-bold text-center text-primary mb-4">Summary</h2>
                                     </div>
 
                                     {/* Personal Information */}

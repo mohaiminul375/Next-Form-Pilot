@@ -63,8 +63,8 @@ The data will also be saved to the database via an API call.
 
 # npm and Packages
 
-- Next.js(15.1.3)
-- React(18.3.1)
+- Next.js(15.2.4)
+- React(18)
 - Typescript
 - Shadcn UI
 - React hook form

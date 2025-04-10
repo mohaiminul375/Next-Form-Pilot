@@ -15,7 +15,7 @@ const AllValidationData = () => {
     return (
         <section className="mt-10 md:max-w-7xl mx-auto">
             <div className="my-5">
-                <h2 className="text-center text-black font-semibold text-2xl">See a Summary of Validating data by Users</h2>
+                <h2 className="text-center text-primary font-semibold text-3xl">See a Summary of Validating data by Users</h2>
             
             </div>
             {

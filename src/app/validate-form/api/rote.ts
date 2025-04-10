@@ -14,6 +14,7 @@ export const useCreateFormData = () => {
         mutationKey: ['verify-cashIn'],
         onSuccess: (data) => {
             queryClient.invalidateQueries({ queryKey: ['all-users'] })
+            queryClient.invalidateQueries({ queryKey: ['summary-data'] })
             console.table(data);
             router.push('/')
             toast.success('your data saved on Database')
