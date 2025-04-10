@@ -54,8 +54,7 @@
 
 - The final data will be printed in the browser console.
 
-- The data will also be saved to the database via an API call.
-
+- The data will also be saved to the database via an API call through tanstack query and axios.
 **All validate Data**
 - All validate data will show in this page submitted by user
 ## Technologies Used

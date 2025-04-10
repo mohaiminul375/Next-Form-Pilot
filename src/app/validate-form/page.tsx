@@ -242,7 +242,7 @@ const ValidateForm = () => {
                                                 <Label className="font-semibold" htmlFor="password">Password <span className="text-red-700 font-bold">*</span></Label>
                                                 <Input
                                                     {...register('password')}
-                                                    type="password" placeholder="Enter your email" />
+                                                    type="password" placeholder="Enter your password" />
                                                 <span className="text-red-700">{errors?.password &&
                                                     errors.password.message}
                                                 </span>
@@ -252,7 +252,7 @@ const ValidateForm = () => {
                                                 <Label className="font-semibold" htmlFor="confirm_password">confirm Password<span className="text-red-700 font-bold">*</span></Label>
                                                 <Input
                                                     {...register('confirm_password')}
-                                                    type="password" placeholder="Enter your phone number" />
+                                                    type="password" placeholder="confirm your password" />
                                                 <span className="text-red-700">{errors?.confirm_password &&
                                                     errors.confirm_password.message}
                                                 </span>
