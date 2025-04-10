@@ -2,7 +2,7 @@
 
 - A Simple Form validation site with Zod and React hook Form
 
-# Live_site:
+# Live_site: https://next-form-pilot.vercel.app
 
 # Run the Project Locally
 
@@ -36,26 +36,28 @@
 5. **Access the Site**: Open your browser and go to http://localhost:3000.
 
 ## Features
--   Multi-Step Form Functionality
--- The application includes a multi-step form to collect user/visitor basic information in a structured and user-friendly way.
 
-Each step of the form includes input validation. If any required field is filled incorrectly or left empty:
+**Multi-Step Form Functionality**
 
-An error message will be shown.
+- The application includes a multi-step form to collect user/visitor basic information in a structured and user-friendly way.
 
-The user will be prevented from proceeding to the next step until the error is resolved.
+- Each step of the form includes input validation. If any required field is filled incorrectly or left empty
+ An error message will be shown.
 
-Once all steps are successfully completed:
+- The user will be prevented from proceeding to the next step until the error is resolved.
 
-A summary view will display all the entered information for review.
+**Once all steps are successfully completed:**
 
-On clicking the Submit button:
+- A summary view will display all the entered information for review.
 
-The final data will be printed in the browser console (for testing/debugging).
+**On clicking the Submit button**
 
-The data will also be saved to the database via an API call.
+- The final data will be printed in the browser console.
 
-  
+- The data will also be saved to the database via an API call.
+
+**All validate Data**
+- All validate data will show in this page submitted by user
 ## Technologies Used
 
 - **Frontend**: Next.js, Typescript, HTML, Tailwind CSS, Shadcn.

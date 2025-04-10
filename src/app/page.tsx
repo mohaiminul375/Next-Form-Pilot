@@ -33,7 +33,7 @@ export default function Home() {
               <h4></h4>
             </div>
           }
-          <div className="mt-5 flex gap-5">
+          <div className="mt-5 flex flex-col md:flex-row gap-5">
             <Link
               className="rounded-2xl border-2 border-white px-8 py-2  ease-in-out hover:rounded-full hover:bg-white text-lg hover:text-[#2DB89D] hover:font-semibold hover:shadow-md transition-all duration-700"
               href='/all-validation'

@@ -17,7 +17,7 @@ const Navbar = () => {
             <section className='flex justify-between items-center text-white h-20 px-10'>
                 {/* Title Section */}
                 <div className='flex-1 text-center'>
-                    <h1 className={`text-5xl font-bold ${dancing_Script.className}`}>
+                    <h1 className={`md:text-5xl text-4xl font-bold ${dancing_Script.className}`}>
                         <Link className="cursor-pointer" href='/'>Next Form Pilot</Link>
                     </h1>
                 </div>
@@ -25,7 +25,7 @@ const Navbar = () => {
                 {/* Theme Toggle Button */}
                 <div
                     onClick={toggleTheme}
-                    className="cursor-pointer"
+                    className="cursor-pointer border border-white rounded-full dark:border-white"
                 >
                     {theme === "light" ? <MoonIcon className="h-10 w-10" /> : <SunIcon className="h-10 w-10" />}
                 </div>
