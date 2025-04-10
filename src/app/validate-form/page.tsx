@@ -121,7 +121,7 @@ const ValidateForm = () => {
         <section>
             {/* Starting content */}
             <div className="flex justify-center items-center min-h-[calc(100vh-160px)]">
-                <div className=" md:min-w-3xl mx-auto bg-foreground shadow-2xl p-6  rounded-md text-white py-10">
+                <div className=" md:min-w-3xl mx-auto bg-foreground shadow-2xl p-6  rounded-md text-white py-10 dark:border border-indigo-200 border-double">
                     <div>
                         <Link className="" href='/' >
                             <Button variant='outline'>

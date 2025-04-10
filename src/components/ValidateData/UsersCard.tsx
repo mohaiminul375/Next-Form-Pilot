@@ -15,7 +15,7 @@ interface User {
 const UsersCard = ({ user }: User) => {
     const { full_name, user_name, city, zip_code, createdAt } = user;
     return (
-        <div className="bg-foreground text-white p-6 rounded-xl shadow-sm shadow-foreground space-y-1 hover:scale-105 transition-transform duration-300">
+        <div className="bg-foreground text-white p-6 rounded-xl shadow-sm shadow-foreground space-y-1 hover:scale-105 transition-transform duration-300 dark:border border-indigo-200 border-double">
             <h3 className="text-xl font-semibold">{full_name}</h3>
             <h6 className="text-lg flex items-center gap-1 font-semibold"><FaUserCheck /> Username: {user_name}</h6>
             <h6 className="text-lg flex items-center gap-1 font-semibold"><FaLocationDot /> City: {city}</h6>

@@ -14,7 +14,7 @@ const Navbar = () => {
         document.documentElement.classList.toggle("dark")
     }
     return (
-        <nav className='bg-foreground h-20 dark:border-b border-white'>
+        <nav className='bg-foreground h-20 dark:border-b border-white border-dashed'>
             <section className='flex justify-between items-center text-white h-20 px-10'>
                 {/* Title Section */}
                 <div className='flex-1 text-center'>
