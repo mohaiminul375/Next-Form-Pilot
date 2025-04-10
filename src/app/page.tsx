@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { dancing_Script } from "@/components/Shared/Navbar";
 import { useGetDataSummary } from "./all-validation/api/route";
-import Loading from "./loading";
 import PropagateLoader from "react-spinners/PropagateLoader";
 // export const dancing_Script = Dancing_Script({
 //     weight: '700',
