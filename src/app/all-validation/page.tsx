@@ -1,12 +1,11 @@
 'use client'
+import Loading from "../loading";
 import { useGetUsers } from "./api/route";
 import UsersCard from "@/components/ValidateData/UsersCard";
 
 const AllValidationData = () => {
     const { data: users, isLoading, error, isError } = useGetUsers();
-    if (isLoading) {
-        return
-    }
+    
     if (isError) return (
         <p className="text-center text-red-700">
             Error: {error && (typeof error === "string" ? error : error.message)}
@@ -17,9 +16,10 @@ const AllValidationData = () => {
         <section className="mt-10 md:max-w-7xl mx-auto">
             <div className="my-5">
                 <h2 className="text-center text-black font-semibold text-2xl">See a Summary of Validating data by Users</h2>
+            
             </div>
             {
-                isLoading ? 'loading' : <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                isLoading ? <Loading/> : <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {/* Example Card */}
                     {
                         users?.map((user) => <UsersCard key={user._id} user={user} />)
