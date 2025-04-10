@@ -3,6 +3,7 @@ import Link from "next/link";
 import { dancing_Script } from "@/components/Shared/Navbar";
 import { useGetDataSummary } from "./all-validation/api/route";
 import Loading from "./loading";
+import PropagateLoader from "react-spinners/PropagateLoader";
 // export const dancing_Script = Dancing_Script({
 //     weight: '700',
 //     subsets: ['latin'],
@@ -18,6 +19,7 @@ export default function Home() {
   );
   return (
     <section >
+      <title>Next Pilot Form | Home</title>
       {/* Starting content */}
       <div className="flex justify-center items-center min-h-[calc(100vh-160px)] ">
         <div className=" md:min-w-3xl mx-auto bg-foreground shadow-2xl p-6 text-center rounded-md text-white min-h-72 flex flex-col items-center justify-center space-y-5 dark:border border-indigo-200 border-double">
@@ -25,7 +27,7 @@ export default function Home() {
           <p className="text-lg font-semibold">Multi-Step Form with Validation with Zod and React Hook Form</p>
           {/* data summary */}
           {
-            isLoading ? <Loading /> : <div className="space-y-2 font-semibold text-lg">
+            isLoading ?  <PropagateLoader color='#FFFFFF' /> : <div className="space-y-2 font-semibold text-lg">
               <h4>Total Validation: {data?.totalValidation}</h4>
               <h4>Last Validation at: {new Date(data?.lastSubmittedAt).toLocaleString()}</h4>
               <h4></h4>

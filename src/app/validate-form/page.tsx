@@ -122,6 +122,7 @@ const ValidateForm = () => {
  
     return (
         <section>
+             <title>Next Pilot Form | Form Validation</title>
             {/* Starting content */}
             <div className="flex justify-center items-center min-h-[calc(100vh-160px)]">
                 <div className=" md:min-w-3xl mx-auto bg-foreground shadow-2xl   rounded-md text-white  dark:border border-indigo-200 border-double">
